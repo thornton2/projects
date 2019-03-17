@@ -9,27 +9,14 @@
 import Foundation
 import CoreData
 
-struct Calculator {
-    let weight: Double
-    let reps: Double
+class Calculator {
+    var weight = 0.0
+    var reps = 0
     
-    init(weight: String, reps: String) {
-        self.weight = Double(weight) ?? 0.0
-        self.reps = Double(reps) ?? 0.0
+    var oneRepMax: Double {
+        return reps == 0 ? 0.0 : weight * Double(reps) * 0.0333 + weight
     }
-    
-    func calcRM() -> Double {
-        if reps == 1 {
-            return weight
-        } else {
-        let repMaxNumber = weight * reps * 0.0333 + weight
-        let roundedRepMaxNumber = repMaxNumber.rounded()
-        return roundedRepMaxNumber
-        
-    }
- }
 }
-
 
 
 
